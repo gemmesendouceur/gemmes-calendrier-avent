@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De l'invisible à la matière : ton cadeau du calendrier de l'Avent | Gemmes en douceur</title>
+<meta name="description" content="Calendrier de l'Avent des Étincelles Divines : reçois gratuitement par courriel « De l'invisible à la matière », un cahier d'introspection d'Edith Cloutier, Gemmes en douceur.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:site_name" content="Gemmes en douceur">
+<meta property="og:title" content="De l'invisible à la matière : ton cadeau du calendrier de l'Avent">
+<meta property="og:description" content="Un cahier d'introspection pour explorer ton énergie, faire des liens et mettre du sens sur ce que tu vis. Offert par Gemmes en douceur.">
+<meta property="og:image" content="https://gemmes-calendrier-avent.netlify.app/couverture-cahier.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mauve: #992174;
+    --mauve-fonce: #6e1653;
+    --peche: #F5BEAC;
+    --peche-pale: #fcebe4;
+    --taupe: #976356;
+    --creme: #fdf8f5;
+    --encre: #3d2a33;
+    --doux: #6d5560;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--encre);
+    background: var(--creme);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--mauve); }
+  h1, h2, h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; line-height: 1.15; color: var(--mauve); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  .etroit { max-width: 680px; margin: 0 auto; }
+  .surtitre {
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--taupe); font-weight: 500; margin-bottom: 14px;
+  }
+  .ornement { color: var(--peche); letter-spacing: 0.6em; text-align: center; font-size: 14px; margin: 0 auto; }
+  p + p { margin-top: 1.1em; }
+
+  /* ---------- Bandeau ---------- */
+  .marque {
+    text-align: center; padding: 22px 16px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 15px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--mauve);
+  }
+  .marque a { text-decoration: none; }
+
+  /* ---------- Section 1 : calendrier ---------- */
+  .calendrier {
+    position: relative; overflow: hidden;
+    padding: 72px 0 84px;
+    background:
+      radial-gradient(ellipse 60% 70% at 85% 10%, rgba(245,190,172,0.55), transparent 70%),
+      radial-gradient(ellipse 50% 60% at 5% 90%, rgba(153,33,116,0.10), transparent 70%),
+      linear-gradient(180deg, #fff 0%, var(--creme) 100%);
+    text-align: center;
+  }
+  .calendrier::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(circle, rgba(153,33,116,0.18) 1px, transparent 1.5px);
+    background-size: 46px 46px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 0%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 0%, transparent 75%);
+    opacity: 0.6;
+  }
+  .calendrier .wrap { position: relative; }
+  .calendrier h1 { font-size: clamp(34px, 6vw, 58px); margin-bottom: 28px; }
+  .calendrier h1 em { font-style: italic; color: var(--taupe); }
+  .calendrier .accroche {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+    font-size: clamp(21px, 3vw, 26px); color: var(--mauve-fonce); line-height: 1.4; margin-bottom: 26px;
+  }
+  .calendrier p { color: var(--doux); }
+  .chiffre {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 64px; height: 64px; border-radius: 50%;
+    border: 1px solid var(--peche); background: rgba(255,255,255,0.7);
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; color: var(--mauve);
+    margin-bottom: 22px;
+  }
+  .defiler {
+    display: inline-block; margin-top: 34px; padding: 14px 30px; border-radius: 40px;
+    background: var(--mauve); color: #fff; text-decoration: none; font-weight: 500; font-size: 15px;
+    transition: background .2s, transform .2s;
+  }
+  .defiler:hover { background: var(--mauve-fonce); transform: translateY(-1px); }
+
+  /* ---------- Section 2 : cadeau ---------- */
+  .cadeau { padding: 90px 0; background: #fff; }
+  .cadeau-grille { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: center; }
+  .couverture { position: relative; }
+  .couverture::before {
+    content: ""; position: absolute; inset: -18px -18px 18px 18px; border-radius: 6px;
+    background: linear-gradient(145deg, var(--peche-pale), rgba(245,190,172,0.65));
+    z-index: 0;
+  }
+  .couverture img {
+    position: relative; z-index: 1; border-radius: 4px; width: 100%; height: auto;
+    box-shadow: 0 24px 50px -18px rgba(110,22,83,0.45);
+  }
+  .cadeau h2 { font-size: clamp(36px, 5vw, 52px); font-style: italic; margin-bottom: 10px; }
+  .sous-titre {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; line-height: 1.4;
+    color: var(--taupe); margin-bottom: 28px;
+  }
+  .phrase-finale {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+    font-size: 23px; color: var(--mauve); line-height: 1.4; margin-top: 1.4em !important;
+  }
+
+  /* ---------- Section 3 : formulaire ---------- */
+  .inscription {
+    padding: 90px 0;
+    background:
+      radial-gradient(ellipse 70% 80% at 50% 0%, rgba(245,190,172,0.45), transparent 70%),
+      var(--peche-pale);
+  }
+  .carte {
+    max-width: 560px; margin: 0 auto; background: #fff; border-radius: 18px;
+    padding: 46px 42px; box-shadow: 0 30px 60px -30px rgba(110,22,83,0.35);
+    border: 1px solid rgba(245,190,172,0.8);
+  }
+  .carte h2 { font-size: clamp(32px, 4.5vw, 42px); text-align: center; margin-bottom: 12px; }
+  .carte .intro { text-align: center; color: var(--doux); margin-bottom: 30px; }
+  .champ { margin-bottom: 20px; }
+  .champ label { display: block; font-weight: 500; font-size: 14px; margin-bottom: 7px; }
+  .champ input {
+    width: 100%; font: inherit; font-size: 16px; padding: 13px 16px;
+    border: 1px solid #dccbc4; border-radius: 10px; background: var(--creme); color: var(--encre);
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .champ input:focus { outline: none; border-color: var(--mauve); box-shadow: 0 0 0 3px rgba(153,33,116,0.15); background: #fff; }
+  .champ input[aria-invalid="true"] { border-color: #b3261e; }
+  .aide-champ { font-size: 13px; color: #b3261e; margin-top: 6px; min-height: 0; }
+  .case { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--doux); line-height: 1.55; margin: 6px 0 26px; }
+  .case input { width: 19px; height: 19px; margin-top: 2px; accent-color: var(--mauve); flex: none; }
+  .piege { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .bouton {
+    width: 100%; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer;
+    background: var(--mauve); color: #fff; border: none; border-radius: 40px; padding: 16px 24px;
+    transition: background .2s, transform .2s;
+  }
+  .bouton:hover { background: var(--mauve-fonce); transform: translateY(-1px); }
+  .bouton:focus-visible { outline: 3px solid var(--peche); outline-offset: 3px; }
+  .bouton[disabled] { opacity: .7; cursor: wait; transform: none; }
+  .message-erreur {
+    display: none; margin-top: 18px; padding: 13px 16px; border-radius: 10px;
+    background: #fdecea; color: #8c1d18; font-size: 14px;
+  }
+  .message-erreur.visible { display: block; }
+  .rassurance { margin-top: 20px; text-align: center; font-size: 13px; color: var(--doux); line-height: 1.6; }
+  .confirmation { display: none; text-align: center; }
+  .confirmation.visible { display: block; }
+  .confirmation .icone {
+    width: 70px; height: 70px; margin: 0 auto 20px; border-radius: 50%;
+    background: var(--peche-pale); display: flex; align-items: center; justify-content: center;
+  }
+  .confirmation h2 { margin-bottom: 14px; }
+  .confirmation p { color: var(--doux); }
+
+  /* ---------- Section 4 : bonus ---------- */
+  .bonus { padding: 90px 0; background: var(--mauve); color: #fff; position: relative; overflow: hidden; }
+  .bonus::after {
+    content: ""; position: absolute; width: 520px; height: 520px; border-radius: 50%;
+    right: -200px; top: -220px; background: radial-gradient(circle, rgba(245,190,172,0.35), transparent 65%);
+    pointer-events: none;
+  }
+  .bonus .wrap { position: relative; z-index: 1; }
+  .bonus .surtitre { color: var(--peche); }
+  .bonus h2 { color: #fff; font-size: clamp(34px, 5vw, 48px); margin-bottom: 12px; }
+  .prix {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; color: var(--peche); margin-bottom: 30px;
+  }
+  .prix s { opacity: .75; }
+  .bonus p { color: rgba(255,255,255,0.92); }
+  .conditions {
+    margin-top: 34px; padding: 26px 28px; border-radius: 14px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(245,190,172,0.4);
+  }
+  .conditions h3 { color: var(--peche); font-size: 22px; margin-bottom: 12px; }
+  .conditions ul { list-style: none; }
+  .conditions li { position: relative; padding-left: 22px; font-size: 15px; color: rgba(255,255,255,0.92); }
+  .conditions li + li { margin-top: 8px; }
+  .conditions li::before { content: "◆"; position: absolute; left: 0; top: 1px; font-size: 10px; color: var(--peche); }
+    .bouton-secondaire {
+    display: inline-block; margin-top: 34px; padding: 14px 30px; border-radius: 40px;
+    border: 1.5px solid var(--peche); color: #fff; text-decoration: none; font-weight: 500;
+    transition: background .2s, color .2s;
+  }
+  .bouton-secondaire:hover { background: var(--peche); color: var(--mauve-fonce); }
+
+  /* ---------- Pied de page ---------- */
+  footer { padding: 48px 0 40px; text-align: center; font-size: 13px; color: var(--doux); background: var(--creme); }
+  footer .nom { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 22px; color: var(--mauve); letter-spacing: 0.08em; margin-bottom: 8px; }
+  footer nav { margin: 10px 0 18px; }
+  footer nav a { margin: 0 10px; }
+  footer .mention { max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 800px) {
+    .cadeau-grille { grid-template-columns: 1fr; gap: 48px; }
+    .couverture { max-width: 320px; margin: 0 auto; }
+  }
+  @media (max-width: 520px) {
+    .wrap { padding: 0 18px; }
+    .calendrier, .cadeau, .inscription, .bonus { padding: 60px 0; }
+    .carte { padding: 34px 22px; }
+    .conditions { padding: 22px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="marque"><a href="https://www.gemmesendouceur.com">Gemmes en douceur</a></header>
+
+<main>
+
+  <!-- Section 1 : le calendrier -->
+  <section class="calendrier" aria-labelledby="titre-calendrier">
+    <div class="wrap etroit">
+      <div class="chiffre" aria-hidden="true">24</div>
+      <p class="surtitre">Calendrier de l'Avent 2026</p>
+      <h1 id="titre-calendrier">Le calendrier de l'Avent des <em>Étincelles Divines</em></h1>
+      <p class="accroche">Et si, cette année, on ouvrait les portes à un peu de magie, de découvertes et de douceur?</p>
+      <p>Le calendrier de l'Avent des Étincelles Divines rassemble 24 entrepreneurs et entrepreneures du monde du bien-être, de l'énergie et du développement personnel. Chaque jour, une nouvelle personne te fait découvrir son univers et t'offre un cadeau pour t'inspirer, te faire du bien ou t'inviter à explorer quelque chose de nouveau.</p>
+      <p>C'est une belle occasion de découvrir des approches différentes, des outils et des personnes passionnées qui ont à cœur de partager leur savoir-faire.</p>
+      <a class="defiler" href="#recevoir">Recevoir mon cadeau</a>
+    </div>
+  </section>
+
+  <!-- Section 2 : le cadeau -->
+  <section class="cadeau" aria-labelledby="titre-cadeau">
+    <div class="wrap cadeau-grille">
+      <div class="couverture">
+        <img src="couverture-cahier.webp" width="760" height="984"
+             alt="Couverture du cahier « De l'invisible à la matière » : une femme écrit dans un carnet, entourée de cristaux et de fleurs séchées.">
+      </div>
+      <div>
+        <p class="surtitre">Mon cadeau pour toi</p>
+        <h2 id="titre-cadeau">De l'invisible à la matière</h2>
+        <p class="sous-titre">Un cahier d'introspection pour explorer ton énergie, faire des liens et mettre du sens sur ce que tu vis.</p>
+        <p>On cherche parfois à comprendre pourquoi certaines situations se répètent, pourquoi certaines choses viennent nous toucher davantage ou pourquoi on ressent le besoin de regarder notre vie autrement.</p>
+        <p>J'ai créé ce cahier pour t'offrir un espace où prendre du recul, réfléchir et explorer différentes pistes de compréhension.</p>
+        <p>Tu y découvriras des explications accessibles, des questions d'introspection et des exercices autour de l'énergie et des lois universelles, abordées comme des pistes de réflexion pour observer ton vécu sous un autre angle.</p>
+        <p>Pas besoin d'avoir toutes les réponses. Pas besoin non plus d'adhérer à tout ce que tu découvriras. Tu peux avancer à ton rythme, retenir ce qui résonne pour toi et laisser de côté ce qui ne te parle pas.</p>
+        <p>Mon souhait, c'est que ce cahier t'accompagne dans tes réflexions et t'aide à ouvrir de nouvelles perspectives.</p>
+        <p class="phrase-finale">Parce que ce que tu vis a toujours un sens. On va le trouver ensemble.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 : le formulaire -->
+  <section class="inscription" id="recevoir" aria-labelledby="titre-form">
+    <div class="wrap">
+      <div class="carte">
+
+        <div id="bloc-formulaire">
+          <p class="ornement" aria-hidden="true">◆ ◇ ◆</p>
+          <h2 id="titre-form">Reçois ton cadeau par courriel</h2>
+          <p class="intro">Laisse-moi ton adresse courriel et je t'enverrai ton cahier d'introspection pour que tu puisses le découvrir à ton rythme.</p>
+
+          <form id="form-avent" novalidate>
+            <div class="champ">
+              <label for="prenom">Prénom</label>
+              <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur-prenom">
+              <p class="aide-champ" id="erreur-prenom" aria-live="polite"></p>
+            </div>
+            <div class="champ">
+              <label for="courriel">Adresse courriel</label>
+              <input id="courriel" name="courriel" type="email" autocomplete="email" inputmode="email" maxlength="120" required aria-describedby="erreur-courriel">
+              <p class="aide-champ" id="erreur-courriel" aria-live="polite"></p>
+            </div>
+
+            <!-- Champ piège pour les robots : invisible pour les personnes -->
+            <div class="piege" aria-hidden="true">
+              <label for="site_web">Ne pas remplir</label>
+              <input id="site_web" name="site_web" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <label class="case">
+              <input type="checkbox" id="infolettre" name="infolettre">
+              <span>Facultatif : j'aimerais aussi recevoir l'infolettre de Gemmes en douceur (réflexions, nouveautés et offres). Je peux me désabonner en tout temps.</span>
+            </label>
+
+            <button class="bouton" type="submit" id="bouton-envoi">Je veux recevoir mon cadeau</button>
+            <p class="message-erreur" id="message-erreur" role="alert"></p>
+          </form>
+
+          <p class="rassurance">Ton adresse sert à t'envoyer le cahier et à gérer ton inscription. Elle n'est jamais vendue ni louée. <a href="https://www.gemmesendouceur.com/politique-de-confidentialite">Politique de confidentialité</a></p>
+        </div>
+
+        <div class="confirmation" id="confirmation" tabindex="-1" aria-live="polite">
+          <div class="icone" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#992174" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l8 6 8-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+          </div>
+          <h2>C'est en route!</h2>
+          <p>Merci <span id="prenom-confirmation"></span>! Ton cahier <em>De l'invisible à la matière</em> s'en vient dans ta boîte courriel, d'ici quelques minutes.</p>
+          <p>Tu ne le vois pas? Jette un œil dans tes courriels indésirables ou dans l'onglet « Promotions », puis ajoute gemmesendouceur@gmail.com à tes contacts pour ne rien manquer.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 : le bonus -->
+  <section class="bonus" aria-labelledby="titre-bonus">
+    <div class="wrap etroit">
+      <p class="surtitre">Bonus exclusif</p>
+      <h2 id="titre-bonus">Un bonus pour aller plus loin</h2>
+      <p class="prix">L'Empreinte Gemmes à 199 $ <span style="opacity:.8">au lieu de</span> <s>225 $</s></p>
+      <p>Et si tu prenais le temps d'explorer ce que tu vis sous un autre angle?</p>
+      <p>L'Empreinte Gemmes est une rencontre personnalisée de 2 heures qui allie discussion, exploration de ton vécu et travail énergétique.</p>
+      <p>On prend le temps de mettre des mots sur ce que tu traverses, d'explorer les liens possibles entre ta réalité, ton monde intérieur et ce qui se présente dans ton énergie. Au fil de la rencontre, je t'accompagne pour faire des liens, accueillir tes prises de conscience et ouvrir de nouvelles pistes de compréhension.</p>
+      <p>Chaque rencontre est unique, parce que ton histoire et ce que tu vis le sont aussi. Mon rôle est de t'accompagner dans cette exploration, tout en te laissant libre de reconnaître ce qui résonne pour toi.</p>
+      <p>Grâce à ce bonus, tu peux profiter de L'Empreinte Gemmes au tarif privilégié de 199 $ au lieu de 225 $ pour une rencontre de 2 heures.</p>
+      <p>La rencontre peut avoir lieu en présentiel ou à distance.</p>
+
+      <div class="conditions">
+        <h3>Conditions du bonus</h3>
+        <ul>
+          <li>Le tarif spécial s'applique à une seule rencontre par personne.</li>
+          <li>Tu peux l'utiliser pour une première rencontre, ou pour une rencontre de suivi si tu es déjà cliente ou client.</li>
+          <li>Le tarif de 199 $ remplace le tarif régulier de 225 $ pour cette rencontre.</li>
+          <li>Pour obtenir le tarif, réserve sur <a href="https://www.gorendezvous.com/kinaya" style="color:var(--peche)">GoRendezVous</a> (Kinaÿa Espace bien-être, choisis Edith Cloutier, puis L'Empreinte Gemmes) et écris « Calendrier des Étincelles » dans la zone Commentaires.</li>
+        </ul>
+      </div>
+
+      <a class="bouton-secondaire" href="https://www.gemmesendouceur.com/empreinte-gemmes">Découvrir L'Empreinte Gemmes</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="nom">Gemmes en douceur</p>
+    <nav>
+      <a href="https://www.gemmesendouceur.com">www.gemmesendouceur.com</a>
+      <a href="https://www.gemmesendouceur.com/politique-de-confidentialite">Politique de confidentialité</a>
+    </nav>
+    <p class="mention">Les renseignements fournis dans ce formulaire servent à te transmettre le cahier et à gérer ton inscription. L'infolettre est envoyée seulement si tu as coché la case prévue à cet effet.</p>
+    <p class="mention" style="margin-top:12px">Ce cahier et l'Empreinte Gemmes s'inscrivent dans une démarche personnelle et énergétique. Ils ne remplacent pas un suivi médical ou psychologique.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var debut = Date.now();
+  var form = document.getElementById('form-avent');
+  var bouton = document.getElementById('bouton-envoi');
+  var erreurGlobale = document.getElementById('message-erreur');
+  var champPrenom = document.getElementById('prenom');
+  var champCourriel = document.getElementById('courriel');
+  var reCourriel = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function marquer(champ, idMsg, msg) {
+    champ.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    document.getElementById(idMsg).textContent = msg || '';
+  }
+
+  function valider() {
+    var ok = true;
+    var p = champPrenom.value.trim();
+    var c = champCourriel.value.trim();
+    if (!p) { marquer(champPrenom, 'erreur-prenom', 'Indique ton prénom.'); ok = false; }
+    else marquer(champPrenom, 'erreur-prenom', '');
+    if (!c) { marquer(champCourriel, 'erreur-courriel', 'Indique ton adresse courriel.'); ok = false; }
+    else if (!reCourriel.test(c)) { marquer(champCourriel, 'erreur-courriel', 'Cette adresse ne semble pas valide. Vérifie-la, par exemple : nom@exemple.com'); ok = false; }
+    else marquer(champCourriel, 'erreur-courriel', '');
+    return ok;
+  }
+
+  champCourriel.addEventListener('blur', function () { if (champCourriel.value.trim()) valider(); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    erreurGlobale.classList.remove('visible');
+    if (!valider()) {
+      (champPrenom.getAttribute('aria-invalid') === 'true' ? champPrenom : champCourriel).focus();
+      return;
+    }
+    bouton.disabled = true;
+    bouton.textContent = 'Envoi en cours…';
+
+    fetch('/api/inscription', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prenom: champPrenom.value.trim(),
+        courriel: champCourriel.value.trim(),
+        infolettre: document.getElementById('infolettre').checked,
+        site_web: document.getElementById('site_web').value,
+        t: Date.now() - debut
+      })
+    })
+    .then(function (res) {
+      return res.json().catch(function () { return {}; }).then(function (data) {
+        if (!res.ok || !data.success) throw new Error(data.error || 'Une erreur est survenue. Réessaie dans un instant.');
+      });
+    })
+    .then(function () {
+      document.getElementById('prenom-confirmation').textContent = champPrenom.value.trim();
+      document.getElementById('bloc-formulaire').style.display = 'none';
+      var conf = document.getElementById('confirmation');
+      conf.classList.add('visible');
+      conf.focus();
+    })
+    .catch(function (err) {
+      var msg = (err && err.message && err.message !== 'Failed to fetch')
+        ? err.message
+        : 'La connexion a échoué. Vérifie ta connexion Internet et réessaie.';
+      erreurGlobale.textContent = msg;
+      erreurGlobale.classList.add('visible');
+      bouton.disabled = false;
+      bouton.textContent = 'Je veux recevoir mon cadeau';
+    });
+  });
+})();
+</script>
+</body>
+</html>
