@@ -134,6 +134,7 @@
   .carte h2 { font-size: clamp(32px, 4.5vw, 42px); text-align: center; margin-bottom: 12px; }
   .carte .intro { text-align: center; color: var(--doux); margin-bottom: 30px; }
   .champ { margin-bottom: 20px; }
+  .champ:last-of-type { margin-bottom: 26px; }
   .champ label { display: block; font-weight: 500; font-size: 14px; margin-bottom: 7px; }
   .champ input {
     width: 100%; font: inherit; font-size: 16px; padding: 13px 16px;
@@ -143,8 +144,6 @@
   .champ input:focus { outline: none; border-color: var(--mauve); box-shadow: 0 0 0 3px rgba(153,33,116,0.15); background: #fff; }
   .champ input[aria-invalid="true"] { border-color: #b3261e; }
   .aide-champ { font-size: 13px; color: #b3261e; margin-top: 6px; min-height: 0; }
-  .case { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--doux); line-height: 1.55; margin: 6px 0 26px; }
-  .case input { width: 19px; height: 19px; margin-top: 2px; accent-color: var(--mauve); flex: none; }
   .piege { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .bouton {
     width: 100%; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer;
@@ -292,16 +291,11 @@
               <input id="site_web" name="site_web" type="text" tabindex="-1" autocomplete="off">
             </div>
 
-            <label class="case">
-              <input type="checkbox" id="infolettre" name="infolettre">
-              <span>Facultatif : j'aimerais aussi recevoir l'infolettre de Gemmes en douceur (réflexions, nouveautés et offres). Je peux me désabonner en tout temps.</span>
-            </label>
-
             <button class="bouton" type="submit" id="bouton-envoi">Je veux recevoir mon cadeau</button>
             <p class="message-erreur" id="message-erreur" role="alert"></p>
           </form>
 
-          <p class="rassurance">Ton adresse sert à t'envoyer le cahier et à gérer ton inscription. Elle n'est jamais vendue ni louée. <a href="https://www.gemmesendouceur.com/politique-de-confidentialite">Politique de confidentialité</a></p>
+          <p class="rassurance">Ton adresse sert uniquement à t'envoyer le cahier et à gérer ton inscription. Elle n'est jamais vendue ni louée. <a href="https://www.gemmesendouceur.com/politique-de-confidentialite">Politique de confidentialité</a></p>
         </div>
 
         <div class="confirmation" id="confirmation" tabindex="-1" aria-live="polite">
@@ -353,7 +347,7 @@
       <a href="https://www.gemmesendouceur.com">www.gemmesendouceur.com</a>
       <a href="https://www.gemmesendouceur.com/politique-de-confidentialite">Politique de confidentialité</a>
     </nav>
-    <p class="mention">Les renseignements fournis dans ce formulaire servent à te transmettre le cahier et à gérer ton inscription. L'infolettre est envoyée seulement si tu as coché la case prévue à cet effet.</p>
+    <p class="mention">Les renseignements fournis dans ce formulaire servent à te transmettre le cahier et à gérer ton inscription.</p>
     <p class="mention" style="margin-top:12px">Ce cahier et l'Empreinte Gemmes s'inscrivent dans une démarche personnelle et énergétique. Ils ne remplacent pas un suivi médical ou psychologique.</p>
   </div>
 </footer>
@@ -403,7 +397,6 @@
       body: JSON.stringify({
         prenom: champPrenom.value.trim(),
         courriel: champCourriel.value.trim(),
-        infolettre: document.getElementById('infolettre').checked,
         site_web: document.getElementById('site_web').value,
         t: Date.now() - debut
       })

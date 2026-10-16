@@ -5,7 +5,6 @@ import type { Config } from "@netlify/functions";
 // Variables à définir dans Netlify (Project configuration > Environment variables) :
 //   BREVO_API_KEY       : la même clé API Brevo que tes autres pages (obligatoire)
 //   AVENT_LIST_ID       : numéro de la liste Brevo « Calendrier de l'Avent 2026 » (obligatoire)
-//   INFOLETTRE_LIST_ID  : numéro de ta liste d'infolettre (facultatif ; seulement si la case est cochée)
 
 const SENDER = { email: "gemmesendouceur@gmail.com", name: "Edith | Gemmes en douceur" };
 const NOTIFY_EMAIL = "gemmesendouceur@gmail.com";
@@ -86,7 +85,6 @@ export default async (req: Request) => {
 
   const prenom = String(body.prenom ?? "").trim().slice(0, 60);
   const courriel = String(body.courriel ?? "").trim().toLowerCase().slice(0, 120);
-  const infolettre = body.infolettre === true;
   const piege = String(body.site_web ?? "");
   const tempsMs = Number(body.t ?? 0);
 
@@ -105,26 +103,22 @@ export default async (req: Request) => {
 
   const apiKey = Netlify.env.get("BREVO_API_KEY");
   const listeAvent = Number(Netlify.env.get("AVENT_LIST_ID"));
-  const listeInfolettre = Number(Netlify.env.get("INFOLETTRE_LIST_ID"));
   if (!apiKey || !listeAvent) {
     console.error("Configuration manquante : BREVO_API_KEY ou AVENT_LIST_ID");
     return json({ error: "Le formulaire n'est pas encore relié. Réessaie un peu plus tard." }, 500);
   }
 
-  const listIds = [listeAvent];
-  if (infolettre && listeInfolettre) listIds.push(listeInfolettre);
-
   const headers = { "Content-Type": "application/json", "api-key": apiKey };
 
   try {
-    // 1. Enregistrer la personne dans Brevo (liste du calendrier, + infolettre seulement si cochée)
+    // 1. Enregistrer la personne dans la liste Brevo du calendrier
     const contactRes = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
       headers,
       body: JSON.stringify({
         email: courriel,
         attributes: { PRENOM: prenom },
-        listIds,
+        listIds: [listeAvent],
         updateEnabled: true,
       }),
     });
@@ -159,7 +153,7 @@ export default async (req: Request) => {
         sender: SENDER,
         to: [{ email: NOTIFY_EMAIL }],
         subject: `Calendrier de l'Avent : nouvelle inscription (${prenom})`,
-        htmlContent: `<p><strong>Prénom :</strong> ${escapeHtml(prenom)}</p><p><strong>Courriel :</strong> ${escapeHtml(courriel)}</p><p><strong>Infolettre :</strong> ${infolettre ? "oui" : "non"}</p>`,
+        htmlContent: `<p><strong>Prénom :</strong> ${escapeHtml(prenom)}</p><p><strong>Courriel :</strong> ${escapeHtml(courriel)}</p>`,
       }),
     }).catch((e) => console.error("Notification Edith :", e));
 
