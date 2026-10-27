@@ -60,7 +60,7 @@ function courrielBienvenue(prenom: string): string {
   <tr><td style="padding:34px 32px 10px 32px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.65;color:#3d2a33;">
     <p style="margin:0 0 18px 0;font-family:Georgia,serif;font-size:24px;color:#992174;">${salut}</p>
     ${p(`Merci de t'être abonné·e à l'infolettre de <strong style="color:#992174;">Gemmes en douceur</strong>. Je suis vraiment contente que tu sois ici.`)}
-    ${p(`Moi, c'est <strong style="color:#992174;">Edith</strong>. Je suis lithothérapeute et accompagnante énergétique à Sherbrooke. J'aime rendre l'invisible plus compréhensible : mettre des mots sur ce qu'on ressent, observer les liens qui se dessinent et ouvrir de nouvelles pistes de réflexion.`)}
+    ${p(`Moi, c'est <strong style="color:#992174;">Edith</strong>. Je suis lithothérapeute et accompagnante énergétique à Sherbrooke (et en ligne). J'aime rendre l'invisible plus compréhensible : mettre des mots sur ce qu'on ressent, observer les liens qui se dessinent et ouvrir de nouvelles pistes de réflexion.`)}
     ${p(`Dans mes courriels, tu trouveras des réflexions, des questions pour prendre un temps d'arrêt, des coulisses de ma pratique et les nouvelles de <em>Gemmes en douceur</em>. J'espère que chaque message t'apportera quelque chose : une idée à laisser mûrir, une prise de conscience ou simplement un petit moment pour toi.`)}
     ${p(`Et pour que tu saches à qui tu écris : derrière la praticienne, il y a aussi une Edith qui peut se mettre à chanter dès qu'un mot lui rappelle une chanson, qui aime les romances et les road trips, et qui est parfois un peu (bon, très) têtue.`)}
     ${p(`Prends ce qui te parle et laisse le reste. Tu es toujours libre de ce que tu choisis d'en retenir.`)}
