@@ -16,6 +16,7 @@ const ORIGINES_PERMISES = [
   "https://gemmes-calendrier-avent.netlify.app",
   "https://www.gemmesendouceur.com",
   "https://gemmesendouceur.com",
+  "https://www-gemmesendouceur-com.filesusr.com", // blocs HTML intégrés du site Wix
 ];
 
 function escapeHtml(str: string): string {
