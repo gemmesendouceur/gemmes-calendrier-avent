@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>De l'invisible à la matière : ton cadeau du calendrier de l'Avent | Gemmes en douceur</title>
-<meta name="description" content="Calendrier de l'Avent des Étincelles Divines : reçois gratuitement par courriel « De l'invisible à la matière », un cahier d'introspection d'Edith Cloutier, Gemmes en douceur.">
+<meta name="description" content="Calendrier de l'Avent des Étincelles Divines : télécharge gratuitement « De l'invisible à la matière », un cahier d'introspection d'Edith Cloutier, Gemmes en douceur.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_CA">
 <meta property="og:site_name" content="Gemmes en douceur">
@@ -159,6 +159,11 @@
   }
   .message-erreur.visible { display: block; }
   .rassurance { margin-top: 20px; text-align: center; font-size: 13px; color: var(--doux); line-height: 1.6; }
+  .bouton-lien { display: block; text-align: center; text-decoration: none; }
+  .carte-infolettre { margin-top: 32px; }
+  .carte-infolettre h2 { font-size: clamp(28px, 4vw, 34px); }
+  .bouton-contour { background: #fff; color: var(--mauve); border: 1.5px solid var(--mauve); }
+  .bouton-contour:hover { background: var(--mauve); color: #fff; }
   .confirmation { display: none; text-align: center; }
   .confirmation.visible { display: block; }
   .confirmation .icone {
@@ -238,7 +243,7 @@
       <p class="accroche">Et si, cette année, on ouvrait les portes à un peu de magie, de découvertes et de douceur?</p>
       <p>Le calendrier de l'Avent des Étincelles Divines rassemble 24 entrepreneurs et entrepreneures du monde du bien-être, de l'énergie et du développement personnel. Chaque jour, une nouvelle personne te fait découvrir son univers et t'offre un cadeau pour t'inspirer, te faire du bien ou t'inviter à explorer quelque chose de nouveau.</p>
       <p>C'est une belle occasion de découvrir des approches différentes, des outils et des personnes passionnées qui ont à cœur de partager leur savoir-faire.</p>
-      <a class="defiler" href="#recevoir">Recevoir mon cadeau</a>
+      <a class="defiler" href="#recevoir">Télécharger mon cadeau</a>
     </div>
   </section>
 
@@ -263,25 +268,31 @@
     </div>
   </section>
 
-  <!-- Section 3 : le formulaire -->
-  <section class="inscription" id="recevoir" aria-labelledby="titre-form">
+  <!-- Section 3 : téléchargement + infolettre -->
+  <section class="inscription" id="recevoir" aria-labelledby="titre-telecharger">
     <div class="wrap">
       <div class="carte">
+        <p class="ornement" aria-hidden="true">◆ ◇ ◆</p>
+        <h2 id="titre-telecharger">Ton cadeau t'attend</h2>
+        <p class="intro">Clique sur le bouton pour télécharger ton cahier d'introspection et le découvrir à ton rythme. Aucune inscription nécessaire.</p>
+        <a class="bouton bouton-lien" id="bouton-telecharger" href="/api/telecharger" rel="nofollow">Télécharger mon cahier (PDF)</a>
+        <p class="rassurance">Astuce : enregistre-le sur ton appareil pour le retrouver facilement. Tu peux écrire directement dedans ou l'imprimer.</p>
+      </div>
 
-        <div id="bloc-formulaire">
-          <p class="ornement" aria-hidden="true">◆ ◇ ◆</p>
-          <h2 id="titre-form">Reçois ton cadeau par courriel</h2>
-          <p class="intro">Laisse-moi ton adresse courriel et je t'enverrai ton cahier d'introspection pour que tu puisses le découvrir à ton rythme.</p>
+      <div class="carte carte-infolettre">
+        <div id="bloc-infolettre">
+          <h2 id="titre-infolettre">Envie de garder le lien?</h2>
+          <p class="intro">Si tu veux, je t'écris de temps en temps : des réflexions, des coulisses de ma pratique et les nouveautés de Gemmes en douceur. C'est facultatif, ton cadeau reste le même.</p>
 
-          <form id="form-avent" novalidate>
+          <form id="form-infolettre" novalidate>
             <div class="champ">
               <label for="prenom">Prénom</label>
-              <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur-prenom">
+              <input id="prenom" name="FNAME" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur-prenom">
               <p class="aide-champ" id="erreur-prenom" aria-live="polite"></p>
             </div>
             <div class="champ">
               <label for="courriel">Adresse courriel</label>
-              <input id="courriel" name="courriel" type="email" autocomplete="email" inputmode="email" maxlength="120" required aria-describedby="erreur-courriel">
+              <input id="courriel" name="EMAIL" type="email" autocomplete="email" inputmode="email" maxlength="120" required aria-describedby="erreur-courriel">
               <p class="aide-champ" id="erreur-courriel" aria-live="polite"></p>
             </div>
 
@@ -291,22 +302,20 @@
               <input id="site_web" name="site_web" type="text" tabindex="-1" autocomplete="off">
             </div>
 
-            <button class="bouton" type="submit" id="bouton-envoi">Je veux recevoir mon cadeau</button>
+            <button class="bouton bouton-contour" type="submit" id="bouton-envoi">Je m'abonne à l'infolettre</button>
             <p class="message-erreur" id="message-erreur" role="alert"></p>
           </form>
 
-          <p class="rassurance">Ton adresse sert uniquement à t'envoyer le cahier et à gérer ton inscription. Elle n'est jamais vendue ni louée. <a href="https://www.gemmesendouceur.com/politique-de-confidentialite">Politique de confidentialité</a></p>
+          <p class="rassurance">En t'abonnant, tu acceptes de recevoir l'infolettre de Gemmes en douceur. Tu peux te désabonner en un clic dans chaque envoi. Ton adresse n'est jamais vendue ni louée. <a href="https://www.gemmesendouceur.com/politique-de-confidentialite">Politique de confidentialité</a></p>
         </div>
 
         <div class="confirmation" id="confirmation" tabindex="-1" aria-live="polite">
           <div class="icone" aria-hidden="true">
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#992174" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l8 6 8-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
           </div>
-          <h2>C'est en route!</h2>
-          <p>Merci <span id="prenom-confirmation"></span>! Ton cahier <em>De l'invisible à la matière</em> s'en vient dans ta boîte courriel, d'ici quelques minutes.</p>
-          <p>Tu ne le vois pas? Jette un œil dans tes courriels indésirables ou dans l'onglet « Promotions », puis ajoute gemmesendouceur@gmail.com à tes contacts pour ne rien manquer.</p>
+          <h2>Bienvenue!</h2>
+          <p>Merci <span id="prenom-confirmation"></span>! <span id="texte-confirmation">Ton inscription à l'infolettre est bien reçue.</span></p>
         </div>
-
       </div>
     </div>
   </section>
@@ -347,20 +356,28 @@
       <a href="https://www.gemmesendouceur.com">www.gemmesendouceur.com</a>
       <a href="https://www.gemmesendouceur.com/politique-de-confidentialite">Politique de confidentialité</a>
     </nav>
-    <p class="mention">Les renseignements fournis dans ce formulaire servent à te transmettre le cahier et à gérer ton inscription.</p>
+    <p class="mention">Le téléchargement du cahier ne demande aucun renseignement personnel. Les renseignements fournis dans le formulaire d'infolettre servent uniquement à t'envoyer l'infolettre de Gemmes en douceur.</p>
     <p class="mention" style="margin-top:12px">Ce cahier et l'Empreinte Gemmes s'inscrivent dans une démarche personnelle et énergétique. Ils ne remplacent pas un suivi médical ou psychologique.</p>
   </div>
 </footer>
 
 <script>
 (function () {
-  var debut = Date.now();
-  var form = document.getElementById('form-avent');
+  // ====== Connexion Mailchimp ======
+  // Adresse du formulaire intégré Mailchimp (attribut action), avec /post? remplacé par /post-json?
+  var MAILCHIMP_ACTION = '';
+  // Champs cachés du formulaire Mailchimp (ex. étiquette « Calendrier de l'Avent »), si présents
+  var MAILCHIMP_CHAMPS_CACHES = {};
+  // =================================
+
+  var form = document.getElementById('form-infolettre');
   var bouton = document.getElementById('bouton-envoi');
   var erreurGlobale = document.getElementById('message-erreur');
   var champPrenom = document.getElementById('prenom');
   var champCourriel = document.getElementById('courriel');
   var reCourriel = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var debut = Date.now();
+  var texteBouton = bouton.textContent;
 
   function marquer(champ, idMsg, msg) {
     champ.setAttribute('aria-invalid', msg ? 'true' : 'false');
@@ -379,6 +396,37 @@
     return ok;
   }
 
+  function afficherErreur(msg) {
+    erreurGlobale.textContent = msg;
+    erreurGlobale.classList.add('visible');
+    bouton.disabled = false;
+    bouton.textContent = texteBouton;
+  }
+
+  function afficherConfirmation(texte) {
+    document.getElementById('prenom-confirmation').textContent = champPrenom.value.trim();
+    if (texte) document.getElementById('texte-confirmation').textContent = texte;
+    document.getElementById('bloc-infolettre').style.display = 'none';
+    var conf = document.getElementById('confirmation');
+    conf.classList.add('visible');
+    conf.focus();
+  }
+
+  // Envoi à Mailchimp par JSONP (méthode prévue par Mailchimp pour les formulaires intégrés)
+  function envoyerMailchimp(donnees, rappel) {
+    var nom = 'mc_' + Date.now();
+    var script = document.createElement('script');
+    var minuterie = setTimeout(function () { nettoyer(); rappel({ result: 'error', msg: 'delai' }); }, 12000);
+    function nettoyer() { clearTimeout(minuterie); try { delete window[nom]; } catch (e) { window[nom] = undefined; } if (script.parentNode) script.parentNode.removeChild(script); }
+    window[nom] = function (rep) { nettoyer(); rappel(rep || {}); };
+    var params = [];
+    for (var cle in donnees) params.push(encodeURIComponent(cle) + '=' + encodeURIComponent(donnees[cle]));
+    params.push('c=' + nom);
+    script.src = MAILCHIMP_ACTION + (MAILCHIMP_ACTION.indexOf('?') > -1 ? '&' : '?') + params.join('&');
+    script.onerror = function () { nettoyer(); rappel({ result: 'error', msg: 'reseau' }); };
+    document.body.appendChild(script);
+  }
+
   champCourriel.addEventListener('blur', function () { if (champCourriel.value.trim()) valider(); });
 
   form.addEventListener('submit', function (e) {
@@ -388,39 +436,38 @@
       (champPrenom.getAttribute('aria-invalid') === 'true' ? champPrenom : champCourriel).focus();
       return;
     }
+    // Robots : champ piège rempli ou envoi en moins de 3 secondes
+    if (document.getElementById('site_web').value || Date.now() - debut < 3000) {
+      afficherConfirmation();
+      return;
+    }
+    if (!MAILCHIMP_ACTION) {
+      afficherErreur("L'inscription à l'infolettre n'est pas encore reliée. Réessaie un peu plus tard.");
+      return;
+    }
     bouton.disabled = true;
-    bouton.textContent = 'Envoi en cours…';
+    bouton.textContent = 'Inscription en cours…';
 
-    fetch('/api/inscription', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        prenom: champPrenom.value.trim(),
-        courriel: champCourriel.value.trim(),
-        site_web: document.getElementById('site_web').value,
-        t: Date.now() - debut
-      })
-    })
-    .then(function (res) {
-      return res.json().catch(function () { return {}; }).then(function (data) {
-        if (!res.ok || !data.success) throw new Error(data.error || 'Une erreur est survenue. Réessaie dans un instant.');
-      });
-    })
-    .then(function () {
-      document.getElementById('prenom-confirmation').textContent = champPrenom.value.trim();
-      document.getElementById('bloc-formulaire').style.display = 'none';
-      var conf = document.getElementById('confirmation');
-      conf.classList.add('visible');
-      conf.focus();
-    })
-    .catch(function (err) {
-      var msg = (err && err.message && err.message !== 'Failed to fetch')
-        ? err.message
-        : 'La connexion a échoué. Vérifie ta connexion Internet et réessaie.';
-      erreurGlobale.textContent = msg;
-      erreurGlobale.classList.add('visible');
-      bouton.disabled = false;
-      bouton.textContent = 'Je veux recevoir mon cadeau';
+    var donnees = { FNAME: champPrenom.value.trim(), EMAIL: champCourriel.value.trim() };
+    for (var k in MAILCHIMP_CHAMPS_CACHES) donnees[k] = MAILCHIMP_CHAMPS_CACHES[k];
+
+    envoyerMailchimp(donnees, function (rep) {
+      var msg = String(rep.msg || '');
+      if (rep.result === 'success') {
+        afficherConfirmation(/confirm/i.test(msg)
+          ? "Il te reste une petite étape : confirme ton inscription en cliquant sur le lien que tu viens de recevoir par courriel."
+          : "Ton inscription à l'infolettre est bien reçue.");
+      } else if (/already subscribed|déjà inscrit|deja inscrit|déjà abonné/i.test(msg)) {
+        afficherConfirmation("Tu es déjà abonné·e à mon infolettre. Merci de faire partie de la communauté!");
+      } else if (msg === 'reseau' || msg === 'delai') {
+        afficherErreur('La connexion a échoué. Vérifie ta connexion Internet et réessaie.');
+      } else if (/too many|trop de/i.test(msg)) {
+        afficherErreur('Trop de tentatives avec cette adresse. Réessaie dans quelques minutes.');
+      } else if (/email|courriel|domain|domaine/i.test(msg)) {
+        afficherErreur('Cette adresse courriel ne semble pas valide. Peux-tu la vérifier?');
+      } else {
+        afficherErreur("Ton inscription n'a pas pu être enregistrée. Réessaie dans un instant.");
+      }
     });
   });
 })();

@@ -6,7 +6,7 @@
   for = "/de-l-invisible-a-la-matiere.pdf"
   [headers.values]
     Content-Type = "application/pdf"
-    Content-Disposition = "inline; filename=\"De-l-invisible-a-la-matiere-Gemmes-en-douceur.pdf\""
+    Content-Disposition = "attachment; filename=\"De-l-invisible-a-la-matiere-Gemmes-en-douceur.pdf\""
     X-Robots-Tag = "noindex"
 
 [[headers]]
