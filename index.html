@@ -365,9 +365,9 @@
 (function () {
   // ====== Connexion Mailchimp ======
   // Adresse du formulaire intégré Mailchimp (attribut action), avec /post? remplacé par /post-json?
-  var MAILCHIMP_ACTION = '';
+  var MAILCHIMP_ACTION = 'https://gemmesendouceur.us22.list-manage.com/subscribe/post-json?u=53a1a7c34a20c96da541a6dc2&id=af958b583b&f_id=003ac2e1f0';
   // Champs cachés du formulaire Mailchimp (ex. étiquette « Calendrier de l'Avent »), si présents
-  var MAILCHIMP_CHAMPS_CACHES = {};
+  var MAILCHIMP_CHAMPS_CACHES = { tags: '554', 'b_53a1a7c34a20c96da541a6dc2_af958b583b': '' };
   // =================================
 
   var form = document.getElementById('form-infolettre');
@@ -457,13 +457,13 @@
         afficherConfirmation(/confirm/i.test(msg)
           ? "Il te reste une petite étape : confirme ton inscription en cliquant sur le lien que tu viens de recevoir par courriel."
           : "Ton inscription à l'infolettre est bien reçue.");
-      } else if (/already subscribed|déjà inscrit|deja inscrit|déjà abonné/i.test(msg)) {
+      } else if (/already subscribed|déjà inscrit|deja inscrit|déjà abonné|déjà membre/i.test(msg)) {
         afficherConfirmation("Tu es déjà abonné·e à mon infolettre. Merci de faire partie de la communauté!");
       } else if (msg === 'reseau' || msg === 'delai') {
         afficherErreur('La connexion a échoué. Vérifie ta connexion Internet et réessaie.');
-      } else if (/too many|trop de/i.test(msg)) {
+      } else if (/too many|trop de|récemment|recently/i.test(msg)) {
         afficherErreur('Trop de tentatives avec cette adresse. Réessaie dans quelques minutes.');
-      } else if (/email|courriel|domain|domaine/i.test(msg)) {
+      } else if (/e-?mail|courriel|adresse|domain|domaine/i.test(msg)) {
         afficherErreur('Cette adresse courriel ne semble pas valide. Peux-tu la vérifier?');
       } else {
         afficherErreur("Ton inscription n'a pas pu être enregistrée. Réessaie dans un instant.");
