@@ -454,6 +454,15 @@
     envoyerMailchimp(donnees, function (rep) {
       var msg = String(rep.msg || '');
       if (rep.result === 'success') {
+        // Courriel de bienvenue envoyé par la page (Brevo)
+        try {
+          fetch('/api/bienvenue', {
+            method: 'POST',
+            keepalive: true,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prenom: donnees.FNAME, courriel: donnees.EMAIL, t: Date.now() - debut })
+          }).catch(function () {});
+        } catch (e) {}
         afficherConfirmation(/confirm/i.test(msg)
           ? "Il te reste une petite étape : confirme ton inscription en cliquant sur le lien que tu viens de recevoir par courriel."
           : "Ton inscription à l'infolettre est bien reçue.");
