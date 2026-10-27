@@ -1,0 +1,454 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap');
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+
+  .ged-accueil-infolettre,
+  .ged-accueil-infolettre * {
+    box-sizing: border-box;
+  }
+
+  .ged-accueil-infolettre {
+    --gai-magenta: #992174;
+    --gai-magenta-fonce: #6e1653;
+    --gai-peche: #F5BEAC;
+    --gai-taupe: #976356;
+    --gai-texte: #302725;
+    --gai-creme: #FDF8F6;
+    width: 100%;
+    padding: clamp(36px, 6vw, 68px) 20px;
+    background: #fff;
+    font-family: 'Montserrat', Arial, sans-serif;
+  }
+
+  .ged-accueil-infolettre__contenu {
+    width: min(100%, 1020px);
+    margin: 0 auto;
+    padding: clamp(30px, 5vw, 52px) clamp(20px, 5vw, 56px);
+    border-radius: 22px;
+    background: var(--gai-creme);
+    text-align: center;
+  }
+
+  .ged-accueil-infolettre__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 0 0 18px;
+    color: var(--gai-magenta);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .ged-accueil-infolettre__deco {
+    color: var(--gai-peche);
+    font-size: .9rem;
+    line-height: 1;
+  }
+
+  .ged-accueil-infolettre__titre {
+    max-width: 800px;
+    margin: 0 auto 16px;
+    color: var(--gai-magenta);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.3rem, 5vw, 3.4rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  .ged-accueil-infolettre__separateur {
+    width: 64px;
+    height: 2px;
+    margin: 0 auto 20px;
+    border: 0;
+    background: var(--gai-peche);
+  }
+
+  .ged-accueil-infolettre__texte {
+    max-width: 660px;
+    margin: 0 auto 26px;
+    color: var(--gai-texte);
+    font-size: .94rem;
+    line-height: 1.75;
+  }
+
+  /* ---------- Formulaire ---------- */
+  .ged-accueil-infolettre__form {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .ged-accueil-infolettre__champs {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr auto;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .ged-accueil-infolettre__champ label {
+    display: block;
+    margin: 0 0 6px 4px;
+    color: var(--gai-texte);
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+  }
+
+  .ged-accueil-infolettre__champ input {
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 16px;
+    border: 1px solid #e6d3cb;
+    border-radius: 11px;
+    background: #fff;
+    color: var(--gai-texte);
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+
+  .ged-accueil-infolettre__champ input:focus {
+    outline: none;
+    border-color: var(--gai-magenta);
+    box-shadow: 0 0 0 3px rgba(153, 33, 116, .15);
+  }
+
+  .ged-accueil-infolettre__champ input[aria-invalid="true"] {
+    border-color: #b3261e;
+  }
+
+  .ged-accueil-infolettre__erreur-champ {
+    min-height: 0;
+    margin: 6px 0 0 4px;
+    color: #b3261e;
+    font-size: .78rem;
+    line-height: 1.4;
+  }
+
+  .ged-accueil-infolettre__erreur-champ:empty {
+    display: none;
+  }
+
+  .ged-accueil-infolettre__piege {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .ged-accueil-infolettre__bouton {
+    display: inline-flex;
+    min-height: 52px;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 28px;
+    border: 1px solid var(--gai-magenta);
+    border-radius: 11px;
+    background: var(--gai-magenta);
+    color: #fff;
+    font-family: inherit;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+  }
+
+  .ged-accueil-infolettre__bouton:hover,
+  .ged-accueil-infolettre__bouton:focus-visible {
+    background: var(--gai-peche);
+    color: var(--gai-magenta);
+  }
+
+  .ged-accueil-infolettre__bouton:focus-visible {
+    outline: 3px solid var(--gai-taupe);
+    outline-offset: 3px;
+  }
+
+  .ged-accueil-infolettre__bouton[disabled] {
+    opacity: .7;
+    cursor: wait;
+  }
+
+  .ged-accueil-infolettre__erreur {
+    display: none;
+    margin: 14px 0 0;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: #fdecea;
+    color: #8c1d18;
+    font-size: .84rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .ged-accueil-infolettre__erreur.visible {
+    display: block;
+  }
+
+  .ged-accueil-infolettre__note {
+    margin: 18px 0 0;
+    color: var(--gai-taupe);
+    font-size: .8rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .ged-accueil-infolettre__note a {
+    color: var(--gai-taupe);
+  }
+
+  /* ---------- Confirmation ---------- */
+  .ged-accueil-infolettre__merci {
+    display: none;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 26px 24px;
+    border: 1px solid var(--gai-peche);
+    border-radius: 16px;
+    background: #fff;
+  }
+
+  .ged-accueil-infolettre__merci.visible {
+    display: block;
+  }
+
+  .ged-accueil-infolettre__merci .ged-accueil-infolettre__merci-titre {
+    margin: 0 0 8px;
+    color: var(--gai-magenta);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .ged-accueil-infolettre__merci p {
+    margin: 0;
+    color: var(--gai-texte);
+    font-size: .92rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 760px) {
+    .ged-accueil-infolettre__champs {
+      grid-template-columns: 1fr;
+    }
+
+    .ged-accueil-infolettre__bouton {
+      width: 100%;
+      margin-top: 4px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ged-accueil-infolettre {
+      padding: 28px 14px;
+    }
+
+    .ged-accueil-infolettre__contenu {
+      padding: 30px 20px;
+      border-radius: 18px;
+    }
+
+    .ged-accueil-infolettre__eyebrow {
+      gap: 9px;
+      font-size: .72rem;
+    }
+
+    .ged-accueil-infolettre__texte {
+      font-size: .9rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ged-accueil-infolettre__bouton,
+    .ged-accueil-infolettre__champ input {
+      transition: none;
+    }
+  }
+</style>
+
+<section class="ged-accueil-infolettre" aria-labelledby="ged-accueil-infolettre-titre">
+  <div class="ged-accueil-infolettre__contenu">
+    <p class="ged-accueil-infolettre__eyebrow">
+      <span class="ged-accueil-infolettre__deco" aria-hidden="true">◆</span>
+      <span>Un petit mot depuis mon univers</span>
+      <span class="ged-accueil-infolettre__deco" aria-hidden="true">◇</span>
+    </p>
+
+    <h2 class="ged-accueil-infolettre__titre" id="ged-accueil-infolettre-titre">
+      Des pistes pour comprendre ce qui se joue en toi
+    </h2>
+
+    <hr class="ged-accueil-infolettre__separateur" aria-hidden="true">
+
+    <p class="ged-accueil-infolettre__texte">
+      Je partage avec toi des réflexions, des découvertes, des outils et des
+      inspirations autour de l’énergie, des cristaux et de la connaissance de soi,
+      toujours avec l’envie de t’aider à mettre des mots et du sens sur ce que tu
+      vis. Pas de bruit inutile. Pas de pression. Des pistes à explorer, à ton rythme.
+    </p>
+
+    <form class="ged-accueil-infolettre__form" id="gai-form" novalidate>
+      <div class="ged-accueil-infolettre__champs">
+        <div class="ged-accueil-infolettre__champ">
+          <label for="gai-prenom">Prénom</label>
+          <input id="gai-prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="gai-err-prenom">
+          <p class="ged-accueil-infolettre__erreur-champ" id="gai-err-prenom" aria-live="polite"></p>
+        </div>
+        <div class="ged-accueil-infolettre__champ">
+          <label for="gai-courriel">Adresse courriel</label>
+          <input id="gai-courriel" type="email" autocomplete="email" inputmode="email" maxlength="120" required aria-describedby="gai-err-courriel">
+          <p class="ged-accueil-infolettre__erreur-champ" id="gai-err-courriel" aria-live="polite"></p>
+        </div>
+        <button class="ged-accueil-infolettre__bouton" type="submit" id="gai-bouton">M'inscrire à l'infolettre</button>
+      </div>
+
+      <!-- Champ piège pour les robots : invisible pour les personnes -->
+      <div class="ged-accueil-infolettre__piege" aria-hidden="true">
+        <label for="gai-site">Ne pas remplir</label>
+        <input id="gai-site" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <p class="ged-accueil-infolettre__erreur" id="gai-erreur" role="alert"></p>
+    </form>
+
+    <div class="ged-accueil-infolettre__merci" id="gai-merci" tabindex="-1" aria-live="polite">
+      <p class="ged-accueil-infolettre__merci-titre">Bienvenue, <span id="gai-merci-prenom"></span>!</p>
+      <p id="gai-merci-texte">Ton inscription est bien reçue. Un petit mot de bienvenue s’en vient dans ta boîte courriel.</p>
+    </div>
+
+    <p class="ged-accueil-infolettre__note" id="gai-note">
+      Sans spam · Tu peux te désinscrire en tout temps ·
+      <a href="https://www.gemmesendouceur.com/politique-de-confidentialite" target="_blank" rel="noopener">Politique de confidentialité</a>
+    </p>
+  </div>
+</section>
+
+<script>
+(function () {
+  // Inscription dans Mailchimp (audience Gemmes en douceur)
+  var MAILCHIMP_ACTION = 'https://gemmesendouceur.us22.list-manage.com/subscribe/post-json?u=53a1a7c34a20c96da541a6dc2&id=af958b583b&f_id=003ac2e1f0';
+  var MAILCHIMP_PIEGE = 'b_53a1a7c34a20c96da541a6dc2_af958b583b';
+  // Courriel de bienvenue (Brevo, via Netlify)
+  var BIENVENUE_URL = 'https://gemmes-calendrier-avent.netlify.app/api/bienvenue';
+
+  var form = document.getElementById('gai-form');
+  var bouton = document.getElementById('gai-bouton');
+  var erreur = document.getElementById('gai-erreur');
+  var prenom = document.getElementById('gai-prenom');
+  var courriel = document.getElementById('gai-courriel');
+  var reCourriel = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var debut = Date.now();
+  var texteBouton = bouton.textContent;
+
+  function marquer(champ, id, msg) {
+    champ.setAttribute('aria-invalid', msg ? 'true' : 'false');
+    document.getElementById(id).textContent = msg || '';
+  }
+
+  function valider() {
+    var ok = true;
+    if (!prenom.value.trim()) { marquer(prenom, 'gai-err-prenom', 'Indique ton prénom.'); ok = false; }
+    else marquer(prenom, 'gai-err-prenom', '');
+    var c = courriel.value.trim();
+    if (!c) { marquer(courriel, 'gai-err-courriel', 'Indique ton adresse courriel.'); ok = false; }
+    else if (!reCourriel.test(c)) { marquer(courriel, 'gai-err-courriel', 'Cette adresse ne semble pas valide.'); ok = false; }
+    else marquer(courriel, 'gai-err-courriel', '');
+    return ok;
+  }
+
+  function afficherErreur(msg) {
+    erreur.textContent = msg;
+    erreur.classList.add('visible');
+    bouton.disabled = false;
+    bouton.textContent = texteBouton;
+  }
+
+  function merci(texte) {
+    document.getElementById('gai-merci-prenom').textContent = prenom.value.trim();
+    if (texte) document.getElementById('gai-merci-texte').textContent = texte;
+    form.style.display = 'none';
+    var m = document.getElementById('gai-merci');
+    m.classList.add('visible');
+    m.focus();
+  }
+
+  function envoyerMailchimp(donnees, rappel) {
+    var nom = 'gai_' + Date.now();
+    var s = document.createElement('script');
+    var minuterie = setTimeout(function () { nettoyer(); rappel({ result: 'error', msg: 'delai' }); }, 12000);
+    function nettoyer() { clearTimeout(minuterie); try { delete window[nom]; } catch (e) { window[nom] = undefined; } if (s.parentNode) s.parentNode.removeChild(s); }
+    window[nom] = function (rep) { nettoyer(); rappel(rep || {}); };
+    var p = [];
+    for (var k in donnees) p.push(encodeURIComponent(k) + '=' + encodeURIComponent(donnees[k]));
+    p.push('c=' + nom);
+    s.src = MAILCHIMP_ACTION + '&' + p.join('&');
+    s.onerror = function () { nettoyer(); rappel({ result: 'error', msg: 'reseau' }); };
+    document.body.appendChild(s);
+  }
+
+  courriel.addEventListener('blur', function () { if (courriel.value.trim()) valider(); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    erreur.classList.remove('visible');
+    if (!valider()) {
+      (prenom.getAttribute('aria-invalid') === 'true' ? prenom : courriel).focus();
+      return;
+    }
+    // Robots : champ piège rempli ou envoi en moins de 3 secondes
+    if (document.getElementById('gai-site').value || Date.now() - debut < 3000) { merci(); return; }
+
+    bouton.disabled = true;
+    bouton.textContent = 'Un instant…';
+
+    var donnees = { FNAME: prenom.value.trim(), EMAIL: courriel.value.trim() };
+    donnees[MAILCHIMP_PIEGE] = '';
+
+    envoyerMailchimp(donnees, function (rep) {
+      var msg = String(rep.msg || '');
+      if (rep.result === 'success') {
+        try {
+          fetch(BIENVENUE_URL, {
+            method: 'POST',
+            keepalive: true,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ prenom: donnees.FNAME, courriel: donnees.EMAIL, t: Date.now() - debut })
+          }).catch(function () {});
+        } catch (err) {}
+        merci(/confirm/i.test(msg)
+          ? "Il te reste une petite étape : confirme ton inscription en cliquant sur le lien que tu viens de recevoir par courriel."
+          : null);
+      } else if (/already subscribed|déjà inscrit|deja inscrit|déjà abonné|déjà membre/i.test(msg)) {
+        merci("Tu fais déjà partie de la communauté. Merci d’être là!");
+      } else if (msg === 'reseau' || msg === 'delai') {
+        afficherErreur('La connexion a échoué. Vérifie ta connexion Internet et réessaie.');
+      } else if (/too many|trop de|récemment|recently/i.test(msg)) {
+        afficherErreur('Trop de tentatives avec cette adresse. Réessaie dans quelques minutes.');
+      } else if (/e-?mail|courriel|adresse|domain|domaine/i.test(msg)) {
+        afficherErreur('Cette adresse courriel ne semble pas valide. Peux-tu la vérifier?');
+      } else {
+        afficherErreur("Ton inscription n’a pas pu être enregistrée. Réessaie dans un instant.");
+      }
+    });
+  });
+})();
+</script>
